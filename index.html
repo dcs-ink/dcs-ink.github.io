@@ -1,242 +1,134 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction // Revamp in Progress</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-green: #39ff14;
+            --dark-bg: #1a0a21; /* Dark purple/black */
+            --glow-blur: 15px;
+            --glow-spread: 5px;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif; /* Retro futuristic font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+            text-align: center;
+        }
+
+        .container {
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 var(--glow-blur) var(--glow-spread) var(--neon-pink),
+                        inset 0 0 10px 2px var(--neon-pink);
+            max-width: 80%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 5px var(--neon-cyan),
+                         0 0 10px var(--neon-cyan),
+                         0 0 20px var(--neon-cyan),
+                         0 0 30px var(--neon-pink), /* Mix glow */
+                         0 0 40px var(--neon-pink);
+            margin-bottom: 20px;
+            animation: text-flicker 3s infinite alternate;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green),
+                         0 0 10px var(--neon-green);
+            margin-bottom: 30px;
+        }
+
+        .icons {
+            font-size: 4rem; /* Make icons large */
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            animation: icons-bob 2s infinite ease-in-out alternate;
+        }
+
+        .icon-eye {
+            animation: look-around 5s infinite ease-in-out;
+            display: inline-block; /* Needed for transform */
+        }
+        
+        .icon-vinyl {
+             animation: spin 4s linear infinite;
+             display: inline-block; /* Needed for transform */
+        }
+
+        /* Animations */
+        @keyframes text-flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 5px var(--neon-cyan),
+                             0 0 10px var(--neon-cyan),
+                             0 0 20px var(--neon-cyan),
+                             0 0 30px var(--neon-pink),
+                             0 0 40px var(--neon-pink);
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes icons-bob {
+            from { transform: translateY(0px); }
+            to   { transform: translateY(-10px); }
+        }
+        
+        @keyframes look-around {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-10px) rotate(-5deg); }
+            50% { transform: translateX(0) rotate(0deg); }
+            75% { transform: translateX(10px) rotate(5deg); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            p { font-size: 1.2rem; }
+            .icons { font-size: 3rem; }
+        }
+
+    </style>
 </head>
-
 <body>
-    <div id="mobile-menu-open" class="shadow-large">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </div>
-    <!-- End #mobile-menu-toggle -->
-    <header>
-        <div id="mobile-menu-close">
-            <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
-            </li>
-            <li>
-                <a href="#experience">Experience</a>
-            </li>
-            <li>
-                <a href="https://dcs-ink.github.io/">Github</a>
-            </li>
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-        </ul>
-    </header>
-    <!-- End header -->
-
-    <div id="lead">
-        <div id="lead-content">
-            <h1>Dan Sharp</h1>
-            <h2></h2>
-        </div>
-        <!-- End #lead-content -->
-
-        <div id="lead-overlay" style="background-image: url('images/websitebackground.jpg');"></div>
-
-        <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
-        </div>
-        <!-- End #lead-down -->
-    </div>
-    <!-- End #lead -->
-
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2 class="heading">About Me</h2>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                        Hello – I'm a technology enthusiast with a passion for learning, creating, and doing good. I thrive on solving complex problems in communication technology, APIs, and automation, with experience in telecom, fintech, and IT support.
-                        <br><br>
-                        I’ve also built and operated a woodworking business, reflecting my passion for hard work, hands-on craftsmanship, creativity, and curiosity. I’m a self-starter who enjoys working with a team to create innovative solutions that make a difference.
-                        <br><br>
-                        Beyond work, I’m always exploring new tech—web development, AI, IoT, and VR. I also love motorcycles, outdoor adventures, and anything that fuels my adrenaline.
-                    </p>
-                </div>
-            </div>
+    <div class="container">
+        <h1>SITE REVAMP IN PROGRESS</h1>
+        <p>Getting a serious overhaul. Check back later.</p>
+        <div class="icons">
+            <span class="icon-eye">👁️</span>
+            <span class="icon-vinyl">💿</span>
+            <span class="icon-eye">👁️</span>
         </div>
     </div>
-    <!-- End #about -->
-
-    <div id="experience" class="background-alt">
-        <h2 class="heading">Work Experience</h2>
-        <div id="experience-timeline">
-            <div data-date="2022 – 2024">
-                <h3>2600Hz (API-Driven Telecom)</h3>
-                <h4>Technical Support Specialist</h4>
-                <p class="indent">
-                    Designed and maintained a virtualized environment for Kazoo (cloud communication platform).
-                    <br><br>
-                    Collaborated with clients to troubleshoot API integration issues.
-                    <br><br>
-                    Used Postman, cURL, and JSON for analysis.
-                    <br><br>
-                    Resolved VoIP issues using SIP signaling analysis and network monitoring tools.
-                    <br><br>
-                    Coordinated and executed Kazoo software upgrades and testing for different client's environments.
-                    <br><br>
-                    Provided technical assistance to users of the Kazoo open-source platform.
-                </p>
-            </div>
-
-            <div data-date="2019 – 2021">
-                <h3>MX Technologies</h3>
-                <h4>QA Engineer | <span style="font-size: smaller;">2020 - 2021</span></h4>
-                <p class="indent">
-                    Developed and executed test plans ensuring ADA compliance.
-                    <br><br>
-                    Maintained automated API test suites for a financial web application.
-                    <br><br>
-                <h4>Technology Support Specialist | <span style="font-size: smaller;">2019 - 2020</span></h4>
-                <p class="indent">
-                    Led migration of an on-premise VoIP system to the cloud for a 700-person company.
-                    <br><br>
-                    Implemented hardware/software asset lifecycle processes.
-                    <br><br>
-                    Created and updated Windows and macOS images for compatibility.
-                    <br></br>
-                    Managed authentication and access control with Okta SSO and MFA.
-                    <br><br>
-                    Administered systems using Ivanti and Jamf Pro.
-                    <br><br>
-                    Supported AV and teleconferencing systems for meetings.
-                </p>
-            </div>
-
-            <div data-date="2016 – 2019">
-                <h3>The Rustic Walnut</h3>
-                <h4>Owner & Operator</h4>
-                <p class="indent">
-                    For three years, my wife and I operated a custom woodworking and furniture restoration business. Check out some of our  <a href="rustic-walnut.html">projects</a>
-                </p>
-            </div>
-
-            <div data-date="2012 – 2016">
-                <h3>School Improvement Network</h3>
-                <h4>Systems Engineer | <span style="font-size: smaller;">2015 - 2016</span></h4>
-                <p class="indent">
-                    Automated Linux server provisioning with SaltStack.
-                    <br><br>
-                    Maintained Nagios/Icinga monitoring for critical infrastructure.
-                    <br><br>
-                    Managed VMware vSphere environment.
-                    <br><br>
-                    Utilized PowerShell to resolve complex Exchange issues.
-                    <br><br>
-                </p>
-                <h4>IT Support Engineer | <span style="font-size: smaller;">2012 - 2015</span></h4>
-                <p class="indent">    
-                    Managed user accounts and permissions in Active Directory.
-                    <br><br>
-                    Provided onboarding IT training for new employees.
-                    <br><br>
-                    Troubleshoot network issues.
-                    <br><br>
-                    Imaged and deployed Windows and Mac computers.
-                    <br><br>
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- End #experience -->
-
-    <div id="skills">
-        <h2 class="heading">Skills</h2>
-        <div id="wordCloud" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-            <span class="wordCloudItem">System Administration</span>
-            <span class="wordCloudItem">Technical Support</span>
-            <span class="wordCloudItem">Network Administration</span>
-            <span class="wordCloudItem">VoIP</span>
-            <span class="wordCloudItem">Virtualization</span>
-            <span class="wordCloudItem">REST APIs</span>
-            <span class="wordCloudItem">Device Management</span>
-            <span class="wordCloudItem">SaaS</span>
-        </div>
-    </div>
-
-    <div id="skills">
-        <h2 class="heading" style="text-align: center;">Technologies</h2>
-        <div id="word-cloud">
-            <span class="wordCloudItem">Microsoft365</span>
-            <span class="wordCloudItem">Linux</span>
-            <span class="wordCloudItem">WindowsOS</span>
-            <span class="wordCloudItem">MacOS</span>
-            <span class="wordCloudItem">Azure</span>
-            <span class="wordCloudItem">Postman</span>
-            <span class="wordCloudItem">Wireshark</span>
-            <span class="wordCloudItem">Nagios</span>
-            <span class="wordCloudItem">SaltStack</span>
-            <span class="wordCloudItem">ServiceNow</span>
-            <span class="wordCloudItem">Jira</span>
-            <span class="wordCloudItem">Jamf</span>
-            <span class="wordCloudItem">Python</span>
-            <span class="wordCloudItem">GSuite</span>
-            <span class="wordCloudItem">Okta</span>
-            <span class="wordCloudItem">JSON</span>
-        </div>
-    </div>
-    <!-- End #skills -->
-
-    
-    <!-- End #skills -->
-
-    <div id="contact" style="background-image: url('images/websitebackground.jpg');">
-        <h2>Get in Touch</h2>
-        <div id="contact-form">
-            <form method="POST" action="https://formspree.io/f/mdkenwba">
-                <input type="hidden" name="_subject" value="Contact request from personal website" />
-                <input type="email" name="_replyto" placeholder="Your email" required>
-                <textarea name="message" placeholder="Your message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-        <!-- End #contact-form -->
-    </div>
-    <!-- End #contact -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-5 copyright">
-                    <p>
-                        Copyright &copy; <span id="current-year">2025</span> Dan Sharp
-                    </p>
-                </div>
-                <div class="col-sm-2 top">
-                    <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
-                </div>
-                            </div>
-        </div>
-    </footer>
-    <!-- End footer -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/scripts.min.js"></script>
 </body>
-
 </html>
